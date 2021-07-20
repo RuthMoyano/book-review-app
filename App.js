@@ -5,6 +5,24 @@ import BookInfo from "./components/BookInfo";
 
 class App extends Component {
 
+  state = {
+    results: [],
+    expandedBook: null
+  };
+
+  setResults = results => {
+    this.setState({ results });
+  };
+
+  collapseBook = () => {
+    this.setState({
+      expandedBook: null
+    });
+  };
+
+  expandBook = expandedBook => {
+    this.setState({ expandedBook });
+  };
 
 
   render() {
