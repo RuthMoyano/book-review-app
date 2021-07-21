@@ -32,7 +32,18 @@ class App extends Component {
           <h3 className="text-muted"> Goodreads Book Search </h3>
         </div>
         <div className="jumbotron">
-        {Math.random() > 0 ? <BookInfo /> : <Search />}
+        {this.state.expandedBook ? (
+            <BookInfo
+              bookData={this.state.expandedBook}
+              collapseBook={this.collapseBook}
+            />
+          ) : (
+            <Search
+              results={this.state.results}
+              setResults={this.setResults}
+              expandBook={this.expandBook}
+            />
+          )}
         </div>
       </div>
     );
