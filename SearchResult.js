@@ -1,7 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const SearchResult = ({ bookData }) => {
+const SearchResult = ({ bookData, expandBook }) => {
+
   /**
    * truncate book title to first 4 words and append it with '...'
    * indicating it is truncated.
@@ -38,14 +39,12 @@ const SearchResult = ({ bookData }) => {
             {bookData.best_book.author.name}
           </p>
 
-          <a
-            href={`https://www.goodreads.com/book/show/${
-              bookData.best_book.id
-            }`}
-            target="_blank"
+          <button
+            className="btn btn-primary"
+            onClick={() => expandBook(bookData)}
           >
-            More Info >>
-          </a>
+             More Info
+          </button>
         </div>
       </div>
     </div>
@@ -53,7 +52,8 @@ const SearchResult = ({ bookData }) => {
 };
 
 SearchResult.propTypes = {
-  prop: PropTypes.object
+  bookData: PropTypes.object,
+  expandBook: PropTypes.func
 };
 
 export default SearchResult;
